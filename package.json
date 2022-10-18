@@ -30,6 +30,7 @@
   "main": "./out/extension",
   "icon": "assets/icon.jpg",
   "activationEvents": [
+    "onCommand:openInGithub.openInSurflyFile",
     "onCommand:openInGithub.openInGitHubFile",
     "onCommand:openInGithub.openInGitHubBlame",
     "onCommand:openInGithub.openInGitHubHistory",
@@ -39,6 +40,10 @@
   ],
   "contributes": {
     "commands": [
+      {
+        "command": "openInGithub.openInSurflyFile",
+        "title": "Open In Surfly: File"
+      },
       {
         "command": "openInGithub.openInGitHubFile",
         "title": "Open In GitHub: File"

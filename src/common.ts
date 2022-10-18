@@ -507,6 +507,24 @@ export function openQuickPickItem(item?: QuickPickItem) {
 }
 
 /**
+ * Opens given quick pick item in surfly.
+ *
+ * @param {String} item
+ */
+export function openQuickPickItemInSurfly(item?: QuickPickItem) {
+  if (!item) return;
+  let startURL = (item as any).url;
+  if (
+    startURL.includes("https://github.com") ||
+    startURL.includes("https://gist.github.com")
+  ) {
+    startURL = startURL.replace(/github.com\//i, "github.dev/");
+  }
+  const surflyURL = `https://app.surfly.online/?url=${startURL}`;
+  open(surflyURL);
+}
+
+/**
  * Copies given quick pick item to the clipboard.
  *
  * @param {String} item

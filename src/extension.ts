@@ -1,11 +1,19 @@
 import * as vscode from "vscode";
-import { openQuickPickItem, copyQuickPickItem } from "./common";
+import {
+  openQuickPickItem,
+  copyQuickPickItem,
+  openQuickPickItemInSurfly,
+} from "./common";
 import fileCommand from "./file";
 import blameCommand from "./blame";
 import historyCommand from "./history";
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "openInGithub.openInSurflyFile",
+      fileCommand(openQuickPickItemInSurfly)
+    ),
     vscode.commands.registerCommand(
       "openInGithub.openInGitHubFile",
       fileCommand(openQuickPickItem)
